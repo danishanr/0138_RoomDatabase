@@ -1,6 +1,11 @@
 package com.example.a0138_roomdatabase.viewmodel
 
 import com.example.a0138_roomdatabase.repositori.RepositoriSiswa
+import com.example.a0138_roomdatabase.room.Siswa
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
 
 class EntryViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel(){
     /**
@@ -16,8 +21,8 @@ class EntryViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel(){
         }
     }
 
-    fun updatedUiState(detailSiswa: DetailSiswa) {
-        uiStatusSiswa =
+    fun updateUiState(detailSiswa: DetailSiswa) {
+        uiStateSiswa =
             UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
     }
 
@@ -55,7 +60,7 @@ fun DetailSiswa.toSiswa(): Siswa = Siswa(
     telpon = telpon
 )
 
-fun Siswa.toUiStateSiswa(isEntryValid: Boolean = false): UISateSiswa = UIStateSiswa(
+fun Siswa.toUiStateSiswa(isEntryValid: Boolean = false): UIStateSiswa = UIStateSiswa(
     detailSiswa = this.toDetailSiswa(),
     isEntryValid = isEntryValid
 )
@@ -64,5 +69,5 @@ fun Siswa.toDetailSiswa(): DetailSiswa = DetailSiswa(
     id = id,
     nama = nama,
     alamat = alamat,
-    telpon = telpn
+    telpon = telpon
 )

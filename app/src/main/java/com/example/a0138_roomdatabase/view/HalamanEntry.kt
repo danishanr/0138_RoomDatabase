@@ -1,6 +1,5 @@
 package com.example.a0138_roomdatabase.view
 
-import androidx.compose.foundation.content.MediaType.Companion.Text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,6 +25,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a0138_roomdatabase.R
 import com.example.a0138_roomdatabase.uicontroller.DestinasiNavigasi
+import com.example.a0138_roomdatabase.uicontroller.SiswaTopAppBar
 import com.example.a0138_roomdatabase.viewmodel.DetailSiswa
 import com.example.a0138_roomdatabase.viewmodel.EntryViewModel
 import com.example.a0138_roomdatabase.viewmodel.PenyediaViewModel
@@ -54,11 +54,10 @@ fun EntrySiswaScreen(
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior
             )
-        }
-    ) { innerPadding ->
+        }) { innerPadding ->
         EntrySiswaBody(
             uiStateSiswa = viewModel.uiStateSiswa,
-            onSiswaValueChange = viewModel::updatedUiState,
+            onSiswaValueChange = viewModel::updateUiState,
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.saveSiswa()
@@ -114,7 +113,7 @@ fun FormInputSiswa(
     ){
         OutlinedTextField(
             value = detailSiswa.nama,
-            onValueChange = { onValueChange(detailSiswa.copy(nama=it)) },
+            onValueChange = {onValueChange(detailSiswa.copy(nama=it)) },
             label = { Text(stringResource(R.string.nama)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -144,7 +143,6 @@ fun FormInputSiswa(
                 modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium))
             )
         }
-
         Divider(
             thickness = dimensionResource(R.dimen.padding_small),
             modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium))

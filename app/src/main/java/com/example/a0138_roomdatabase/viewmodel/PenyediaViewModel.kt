@@ -1,5 +1,6 @@
 package com.example.a0138_roomdatabase.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
@@ -8,6 +9,7 @@ import com.example.a0138_roomdatabase.AplikasiSiswa
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {
+
         initializer {
             HomeViewModel(aplikasiSiswa().container.repositoriSiswa)
         }
@@ -15,12 +17,13 @@ object PenyediaViewModel {
         initializer {
             EntryViewModel(aplikasiSiswa().container.repositoriSiswa)
         }
+
     }
 }
 
 /**
- * Fungsi eksistensi query untuk objek [Application] dan mengembalikan sebuah instance dari [AplikasiSiswa]
+ * Fungsi ekstensi query untuk objek [Application] dan mengembalikan sebuah instance dari
+ * [AplikasiSiswa].
  */
-
-fun CreationExtras.aplikasiSiswa():AplikasiSiswa =
+fun CreationExtras.aplikasiSiswa(): AplikasiSiswa =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiSiswa)
