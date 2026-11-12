@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-
-    id("com.android.application")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -44,11 +43,11 @@ dependencies {
     // icons
     implementation(libs.compose.icons)
     // room
-    implementation(libs,bundles.room)
+    implementation(libs.bundles.room)
     ksp(libs.room.compiler)
     // ViewModel
     implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.runtime.compose)
+    implementation(libs.lifecycle.runtime.compose)
     // navigasi
     implementation(libs.navigation.compose)
 
