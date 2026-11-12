@@ -1,22 +1,24 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.compose)
+    id("com.andorid.application")
+    id("org.jetbrains.kotlin.andorid")
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 android {
     namespace = "com.example.a0138_roomdatabase"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.a0138_roomdatabase"
-        minSdk = 24
-        targetSdk = 37
+        minSdk = 27
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
