@@ -8,7 +8,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -143,12 +142,11 @@ fun FormInputSiswa(
             )
         }
         HorizontalDivider(
-            modifier = Modifier.padding(bottom =
-            dimensionResource(R.dimen.padding_medium)),
-            thickness = dimensionResource(R.dimen.padding_small),
-            color.Blue
-            )
-
+            modifier = Modifier.padding(
+                bottom = dimensionResource(id = R.dimen.padding_medium)
+            ),
+            thickness = dimensionResource(id = R.dimen.padding_small),
+            color = Color.Blue
         )
     }
 }

@@ -1,7 +1,8 @@
 package com.example.a0138_roomdatabase.view
 
-import androidx.compose.foundation.clickableimport
-import com.example.a0138_roomdatabase.uicontroller.DestinasiHome androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import com.example.a0138_roomdatabase.uicontroller.DestinasiHome
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -35,8 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a0138_roomdatabase.R
 import com.example.a0138_roomdatabase.room.Siswa
-import com.example.a0138_roomdatabase.uicontroller.DestinasiNavigasi
-import com.example.a0138_roomdatabase.uicontroller.SiswaTopAppBar
 import com.example.a0138_roomdatabase.viewmodel.HomeViewModel
 import com.example.a0138_roomdatabase.viewmodel.PenyediaViewModel
 

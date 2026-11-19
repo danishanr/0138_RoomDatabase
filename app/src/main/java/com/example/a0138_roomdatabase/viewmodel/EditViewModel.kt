@@ -1,6 +1,5 @@
 package com.example.a0138_roomdatabase.viewmodel
 
-import android.R.attr.name
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -10,6 +9,8 @@ import com.example.a0138_roomdatabase.uicontroller.DestinasiDetailSiswa
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class EditViewModel(
     savedStateHandle: SavedStateHandle,
@@ -35,7 +36,7 @@ class EditViewModel(
 
     private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return with(uiState) {
-            name.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
+            nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
     }
 
