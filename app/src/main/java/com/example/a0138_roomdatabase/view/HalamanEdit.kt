@@ -9,6 +9,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a0138_roomdatabase.uicontroller.DestinasiEditSiswa
 import com.example.a0138_roomdatabase.viewmodel.EditViewModel
 import com.example.a0138_roomdatabase.viewmodel.PenyediaViewModel
+import kotlinx.coroutines.launch
 import java.lang.reflect.Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,5 +31,16 @@ fun EditSiswaScreen(
         modifier = Modifier
     ) { innerPadding ->
         val coroutineScope = rememberCoroutineScope()
+        EntrySiswaBody(
+            uiStateSiswa = viewModel.uiStateSiswa,
+            onSiswaValueChange = viewModel::updateUiState,
+            onSaveClick = {
+                            coroutineScope.launch {
+                                viewModel.updateSiswa()
+                                navigateBack()
+                            }
+            },
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
